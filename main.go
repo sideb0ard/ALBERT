@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/mgutz/ansi"
 )
@@ -14,9 +13,10 @@ func main() {
 	PS2 := ansi.Color("#BERT> ", "white")
 	setMaxProc()
 
+	albert := newThunker()
+
 	shellReader := bufio.NewReader(os.Stdin)
 	for {
-		// SETUP && LOOP
 		fmt.Printf(PS2)
 		input, err := shellReader.ReadString('\n')
 		if err != nil {
@@ -27,9 +27,7 @@ func main() {
 			}
 		}
 
-		input = strings.TrimSpace(input)
-		response := chompyChomp(input)
-		fmt.Println("DUDDDDDE!", response)
+		fmt.Println(albert.respond(input))
 
 	}
 }
