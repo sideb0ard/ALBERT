@@ -13,7 +13,7 @@ func main() {
 	PS2 := ansi.Color("#BERT> ", "white")
 	setMaxProc()
 
-	albert := newThunker()
+	albert := newAgent()
 
 	shellReader := bufio.NewReader(os.Stdin)
 	for {

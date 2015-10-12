@@ -7,18 +7,13 @@ import (
 	"time"
 )
 
-type Thunker struct {
-	WurdMap  map[string]int
-	Memories map[time.Time]Event
-}
-
-func newThunker() *Thunker {
-	return &Thunker{
+func newAgent() *Agent {
+	return &Agent{
 		WurdMap:  make(map[string]int),
 		Memories: make(map[time.Time]Event)}
 }
 
-func (t *Thunker) respond(input string) string {
+func (t *Agent) respond(input string) string {
 
 	input = strings.ToLower(input)
 	re := regexp.MustCompile("[^a-z]")
